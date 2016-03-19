@@ -115,11 +115,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
+    int count =0;
     @Override
     public void onBackPressed() {
         // Disable going back to the MainActivity
         moveTaskToBack(true);
+        count++;
+        if(count>1)
+        {
+            finish();
+        }
     }
 
     public void onLoginSuccess() {

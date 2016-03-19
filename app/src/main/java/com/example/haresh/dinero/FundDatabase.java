@@ -79,5 +79,17 @@ public class FundDatabase extends SQLiteOpenHelper{
         else return 0;
     }
 
+    public int getsumuser(String f,String u) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cur =null;
+        cur = db.rawQuery("SELECT SUM(money) FROM FUNDINFO WHERE fund ='"+f+"' AND name = '"+u+"' ", null);
+        if (cur.moveToFirst()){
+            return cur.getInt(0);
+
+
+        }
+        else return 0;
+    }
+
 
 }

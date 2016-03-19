@@ -51,6 +51,11 @@ public class Details extends Activity{
             s = getIntent().getExtras().getString("F");
 
         }
+        else if(type.contentEquals("t"))
+        {
+            s = getIntent().getExtras().getString("newtrans");
+
+        }
         grpname.setText("FundGroup: "+s);
         total = fd.getsum(s);
         String s1= Integer.toString(total);
@@ -69,6 +74,7 @@ public class Details extends Activity{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Details.this, Transaction.class);
+                i.putExtra("dfname",s);
                 startActivity(i);
                 finish();
 

@@ -33,6 +33,8 @@
         <activity android:name="com.example.haresh.dinero.SignupActivity" />
         <activity android:name="com.example.haresh.dinero.ListUser" />
         <activity android:name="com.example.haresh.dinero.MainScreen" />
+        <activity android:name="com.example.haresh.dinero.MyProfile" />
+
     </application>
 
 </manifest>

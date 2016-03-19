@@ -2,6 +2,8 @@ package com.example.haresh.dinero;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -156,9 +158,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_change_picture) {
 
+            Intent t= new Intent(MainActivity.this,MyProfile.class);
+            startActivity(t);
+            finish();
+
+
+
+
         } else if (id == R.id.nav_logout) {
 
         } else if (id == R.id.nav_share) {
+            // TODO Auto-generated method stub
+            //Intent next= new Intent(getApplicationContext(),Menu.class);
+            //startActivity(next);
+            PackageManager pm=getPackageManager();
+            try {
+
+                Intent waIntent = new Intent(Intent.ACTION_SEND);
+                waIntent.setType("text/plain");
+                //String text = "YOUR TEXT HERE"
+                String text= "Hey Starwar Fan...check out this awesome app ......i foyu want it on your smartphone ,it only costs $2.99....contact Ajay!";
+                ;
+
+                PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+                //Check if package exists or not. If not then code
+                //in catch block will be called
+                waIntent.setPackage("com.whatsapp");
+
+                waIntent.putExtra(Intent.EXTRA_TEXT, text);
+                startActivity(Intent.createChooser(waIntent, "Share with"));
+
+            } catch (PackageManager.NameNotFoundException e) {
+
+            }
 
         } else if (id == R.id.nav_send) {
 
